@@ -34,5 +34,14 @@
         "video_file": "mp4/SONG_REQUEST.mp4",
         "cover_img": "covers/SONG_REQUEST.jpg",
         "main_color": "#fe411b"
+    },
+    {
+        "id": 5,
+        "title": "Stealing Fire",
+        "artist": "Virtual Riot",
+        "duration": 231,
+        "video_file": "mp4/Stealing_Fire.mp4",
+        "cover_img": "covers/Stealing_Fire.jpg",
+        "main_color": "#f2a81e"
     }
 ]
