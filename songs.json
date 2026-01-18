@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "Feel Ur Luv",
+        "artist": "RetroVision",
+        "duration": 186,
+        "video_file": "mp4/Feel_Ur_Luv.mp4",
+        "cover_img": "covers/Feel_Ur_Luv.jpg",
+        "main_color": "#52eafe"
+    },
+    {
+        "id": 2,
+        "title": "When Youre Not Around",
+        "artist": "Bad Computer & ROY KNOX",
+        "duration": 192,
+        "video_file": "mp4/When_Youre_Not_Around.mp4",
+        "cover_img": "covers/When_Youre_Not_Around.jpg",
+        "main_color": "#decddd"
+    },
+    {
+        "id": 3,
+        "title": "Ultrasound",
+        "artist": "Arcando & Pirapus",
+        "duration": 187,
+        "video_file": "mp4/Ultrasound.mp4",
+        "cover_img": "covers/Ultrasound.jpg",
+        "main_color": "#c3c3c3"
+    }
+]
