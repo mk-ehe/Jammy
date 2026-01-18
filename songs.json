@@ -25,5 +25,14 @@
         "video_file": "mp4/Ultrasound.mp4",
         "cover_img": "covers/Ultrasound.jpg",
         "main_color": "#c3c3c3"
+    },
+        {
+        "id": 4,
+        "title": "SONG REQUEST",
+        "artist": "RAY VOLPE",
+        "duration": 204,
+        "video_file": "mp4/SONG_REQUEST.mp4",
+        "cover_img": "covers/SONG_REQUEST.jpg",
+        "main_color": "#fe411b"
     }
 ]

@@ -61,7 +61,12 @@ fetch("songs.json")
                     activeBtn = playBtn;
                 }
             });
+            songElement.addEventListener("dblclick", () => {
+                playBtn.click();
+            })
+            
+
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
-        })
-    });
+        });
+        });
