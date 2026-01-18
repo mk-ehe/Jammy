@@ -2,6 +2,7 @@ const container = document.getElementById("container");
 const bgVideo = document.getElementById("bg-video");
 
 let activeBtn = null;
+let activeSongElement = null;
 
 function formatTime(seconds) {
     const min = Math.floor(seconds / 60);
@@ -28,7 +29,7 @@ fetch("songs.json")
             const playBtn = document.createElement("button");
             playBtn.classList.add("play-btn");
             playBtn.textContent = "▶";
-            bgVideo.volume = .15;
+            bgVideo.volume = .2;
 
             playBtn.addEventListener("click", () => {
                 const isNewSong = !bgVideo.src.includes(song.video_file);
@@ -37,6 +38,7 @@ fetch("songs.json")
                     if (activeBtn) {
                         activeBtn.textContent = "▶";
                         playBtn.style.paddingBottom = "5px"
+                        activeSongElement.classList.remove("active-card");
                     }
 
                     bgVideo.src = song.video_file;
@@ -47,6 +49,8 @@ fetch("songs.json")
                     playBtn.style.paddingBottom = "9px"
                     
                     activeBtn = playBtn;
+                    activeSongElement = songElement;
+                    activeSongElement.classList.add("active-card");
 
                 } else {
                     if (bgVideo.paused) {
@@ -57,14 +61,13 @@ fetch("songs.json")
                         bgVideo.pause();
                         playBtn.textContent = "▶";
                         playBtn.style.paddingBottom = "5px"
-                    }
+                    }   
                     activeBtn = playBtn;
                 }
             });
             songElement.addEventListener("dblclick", () => {
                 playBtn.click();
             })
-            
 
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);

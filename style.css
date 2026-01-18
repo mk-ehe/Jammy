@@ -25,7 +25,10 @@ body {
     margin-bottom: 1px;
 }
 .song-card:hover{
-    background-color: hsla(0, 0%, 100%, 0.2);
+    background-color: hsla(0, 0%, 100%, 0.15);
+}
+.active-card {
+    background-color: hsla(0, 0%, 100%, 0.25);
 }
 
 .song-info {
@@ -80,6 +83,6 @@ p {
     object-fit: cover;
     z-index: -1;
     display: none;
-    filter: brightness(0.8);
+    filter: brightness(0.75);
     pointer-events: none;
 }
