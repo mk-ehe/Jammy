@@ -8,6 +8,10 @@ body {
     overflow: hidden;
 }
 
+#container {
+    padding-top: 45px;
+}
+
 .song-card {
     display: flex;
     align-items: center;
@@ -25,10 +29,14 @@ body {
     margin-bottom: 1px;
 }
 .song-card:hover{
-    background-color: hsla(0, 0%, 100%, 0.15);
+    background-color: hsla(0, 0%, 100%, 0.12);
 }
+
 .active-card {
-    background-color: hsla(0, 0%, 100%, 0.25);
+    background-color: hsla(0, 0%, 100%, 0.24);
+}
+.active-card:hover {
+    background-color: hsla(0, 0%, 100%, 0.3)
 }
 
 .song-info {
@@ -48,12 +56,13 @@ body {
 h3 {
     font-weight: bold;
     margin: 0;
+    font-size: 1em;
 }
 
 p {
-    color: #ffffff;
+    color: #d4d4d4;
     margin: 0;
-    font-size: .8em;
+    font-size: .75em;
 }
 
 .duration {
