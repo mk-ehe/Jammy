@@ -30,6 +30,11 @@ fetch("songs.json")
             playBtn.classList.add("play-btn");
             playBtn.textContent = "▶";
             bgVideo.volume = .2;
+            
+            if (song.main_color) {
+                songElement.style.setProperty("--active-color", song.main_color+"4f");
+                songElement.style.setProperty("--active-color-hover", song.main_color+"63");
+            }
 
             playBtn.addEventListener("click", () => {
                 const isNewSong = !bgVideo.src.includes(song.video_file);
@@ -37,7 +42,7 @@ fetch("songs.json")
                 if (isNewSong) {
                     if (activeBtn) {
                         activeBtn.textContent = "▶";
-                        playBtn.style.paddingBottom = "5px"
+                        playBtn.style.paddingBottom = "5px";
                         activeSongElement.classList.remove("active-card");
                     }
 
@@ -46,7 +51,7 @@ fetch("songs.json")
                     bgVideo.play();
                     
                     playBtn.textContent = "⏸";
-                    playBtn.style.paddingBottom = "9px"
+                    playBtn.style.paddingBottom = "9px";
                     
                     activeBtn = playBtn;
                     activeSongElement = songElement;
@@ -56,11 +61,11 @@ fetch("songs.json")
                     if (bgVideo.paused) {
                         bgVideo.play();
                         playBtn.textContent = "⏸";
-                        playBtn.style.paddingBottom = "9px"
+                        playBtn.style.paddingBottom = "9px";
                     } else {
                         bgVideo.pause();
                         playBtn.textContent = "▶";
-                        playBtn.style.paddingBottom = "5px"
+                        playBtn.style.paddingBottom = "5px";
                     }   
                     activeBtn = playBtn;
                 }
