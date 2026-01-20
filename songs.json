@@ -17,8 +17,17 @@
         "cover_img": "covers/Ultrasound.jpg",
         "main_color": "#adadad"
     },
-        {
+    {
         "id": 3,
+        "title": "Codes",
+        "artist": "OddKidOut",
+        "duration": 151,
+        "video_file": "mp4/Codes.mp4",
+        "cover_img": "covers/Codes.jpg",
+        "main_color": "#7f31ac"
+    },
+    {
+        "id": 4,
         "title": "SONG REQUEST",
         "artist": "RAY VOLPE",
         "duration": 204,
@@ -27,7 +36,7 @@
         "main_color": "#fe411b"
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "When You're Not Around",
         "artist": "Bad Computer & ROY KNOX",
         "duration": 192,
@@ -36,12 +45,21 @@
         "main_color": "#58a8d6"
     },
     {
-        "id": 5,
+        "id": 6,
         "title": "Stealing Fire",
         "artist": "Virtual Riot",
         "duration": 231,
         "video_file": "mp4/Stealing_Fire.mp4",
         "cover_img": "covers/Stealing_Fire.jpg",
         "main_color": "#6d21bf"
+    },
+    {
+        "id": 7,
+        "title": "Euphoria Rush",
+        "artist": "CHYL & Skybreak",
+        "duration": 237,
+        "video_file": "mp4/Euphoria_Rush.mp4",
+        "cover_img": "covers/Euphoria_Rush.jpg",
+        "main_color": "#a954ff"
     }
 ]
