@@ -9,10 +9,29 @@ body {
 }
 
 #container {
-    padding-top: 45px;
     width: 50%;
     min-width: 400px;
+    background-color: hsla(0, 0%, 0%, 0.35);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 40px;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+#container::-webkit-scrollbar {
+    width: 5px;
+}
+#container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+#container::-webkit-scrollbar-thumb {
+    background-color: var(--main-color, #555555);
+    border-radius: 4px;
+}
+#container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-color-hover, #888888);
+}   
 
 .song-card {
     display: flex;
