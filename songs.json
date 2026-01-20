@@ -37,6 +37,15 @@
     },
     {
         "id": 5,
+        "title": "Real - VIP Mix",
+        "artist": "NOTION, Cecelia",
+        "duration": 184,
+        "video_file": "mp4/Real_VIP_Mix.mp4",
+        "cover_img": "covers/Real_VIP_Mix.jpg",
+        "main_color": "#e7e7e7"
+    },
+    {
+        "id": 6,
         "title": "When You're Not Around",
         "artist": "Bad Computer & ROY KNOX",
         "duration": 192,
@@ -45,7 +54,7 @@
         "main_color": "#58a8d6"
     },
     {
-        "id": 6,
+        "id": 7,
         "title": "Stealing Fire",
         "artist": "Virtual Riot",
         "duration": 231,
@@ -54,70 +63,16 @@
         "main_color": "#6d21bf"
     },
     {
-        "id": 7,
-        "title": "Euphoria Rush",
-        "artist": "CHYL & Skybreak",
-        "duration": 237,
-        "video_file": "mp4/Euphoria_Rush.mp4",
-        "cover_img": "covers/Euphoria_Rush.jpg",
-        "main_color": "#a954ff"
+        "id": 8,
+        "title": "Burning",
+        "artist": "NOTION",
+        "duration": 185,
+        "video_file": "mp4/Burning.mp4",
+        "cover_img": "covers/Burning.jpg",
+        "main_color": "#e34265"
     },
     {
-        "id": 1,
-        "title": "Feel Ur Luv",
-        "artist": "RetroVision",
-        "duration": 186,
-        "video_file": "mp4/Feel_Ur_Luv.mp4",
-        "cover_img": "covers/Feel_Ur_Luv.jpg",
-        "main_color": "#46b7e0"
-    },
-    {
-        "id": 2,
-        "title": "Ultrasound",
-        "artist": "Arcando & Pirapus",
-        "duration": 187,
-        "video_file": "mp4/Ultrasound.mp4",
-        "cover_img": "covers/Ultrasound.jpg",
-        "main_color": "#adadad"
-    },
-    {
-        "id": 3,
-        "title": "Codes",
-        "artist": "OddKidOut",
-        "duration": 151,
-        "video_file": "mp4/Codes.mp4",
-        "cover_img": "covers/Codes.jpg",
-        "main_color": "#7f31ac"
-    },
-    {
-        "id": 4,
-        "title": "SONG REQUEST",
-        "artist": "RAY VOLPE",
-        "duration": 204,
-        "video_file": "mp4/SONG_REQUEST.mp4",
-        "cover_img": "covers/SONG_REQUEST.jpg",
-        "main_color": "#fe411b"
-    },
-    {
-        "id": 5,
-        "title": "When You're Not Around",
-        "artist": "Bad Computer & ROY KNOX",
-        "duration": 192,
-        "video_file": "mp4/When_Youre_Not_Around.mp4",
-        "cover_img": "covers/When_Youre_Not_Around.jpg",
-        "main_color": "#58a8d6"
-    },
-    {
-        "id": 6,
-        "title": "Stealing Fire",
-        "artist": "Virtual Riot",
-        "duration": 231,
-        "video_file": "mp4/Stealing_Fire.mp4",
-        "cover_img": "covers/Stealing_Fire.jpg",
-        "main_color": "#6d21bf"
-    },
-    {
-        "id": 7,
+        "id": 9,
         "title": "Euphoria Rush",
         "artist": "CHYL & Skybreak",
         "duration": 237,

@@ -56,9 +56,10 @@ fetch("songs.json")
                     activeBtn = playBtn;
                     activeSongElement = songElement;
                     activeSongElement.classList.add("active-card");
-
+                if (song.main_color) {
                     container.style.setProperty("--main-color", song.main_color+"af");
                     container.style.setProperty("--main-color-hover", song.main_color);
+                }
 
                 } else {
                     if (bgVideo.paused) {
