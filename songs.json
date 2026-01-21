@@ -79,5 +79,23 @@
         "video_file": "mp4/Euphoria_Rush.mp4",
         "cover_img": "covers/Euphoria_Rush.jpg",
         "main_color": "#a954ff"
+    },
+    {
+        "id": 10,
+        "title": "BODY DROP",
+        "artist": "Pirapus",
+        "duration": 224,
+        "video_file": "mp4/BODY_DROP.mp4",
+        "cover_img": "covers/BODY_DROP.jpg",
+        "main_color": "#c3ddeb"
+    },
+    {
+        "id": 101,
+        "title": "EVERYNITE",
+        "artist": "Pirapus",
+        "duration": 200,
+        "video_file": "mp4/EVERYNITE.mp4",
+        "cover_img": "covers/EVERYNITE.jpg",
+        "main_color": "#00e79e"
     }
 ]

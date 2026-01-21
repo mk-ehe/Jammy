@@ -18,6 +18,7 @@ body {
     max-height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
+    backdrop-filter: blur(4px);
 }
 #container::-webkit-scrollbar {
     width: 5px;
@@ -40,8 +41,7 @@ body {
     width: 100%;
     height: 50px;
     border-radius: 10px;
-    border: 1px solid hsla(0, 0%, 100%, 0.2);
-    backdrop-filter: blur(4px);
+    border: 1px solid hsla(0, 0%, 100%, 0.3);
     user-select: none;
     -webkit-user-select: none; 
     -moz-user-select: none;   
@@ -50,13 +50,14 @@ body {
     margin-bottom: 1px;
 }
 .song-card:hover{
-    background-color: hsla(0, 0%, 100%, 0.12);
+    background-color: hsla(0, 0%, 100%, 0.1);
     transition: background-color 0.2s ease;
 }
 
 .active-card {
     background-color: var(--active-color, hsla(0, 0%, 100%, 0.24));
     transition: background-color 0.2s ease;
+    border: 1px solid var(--main-color-border, (0, 0%, 100%, 0.3));
 }
 .active-card:hover {
     background-color: var(--active-color-hover, hsla(0, 0%, 100%, 0.3));
@@ -75,6 +76,7 @@ body {
     border-radius: 5px;
     object-fit: cover;
     margin: 6px;
+    border: 1px solid var(--main-color-border, (0, 0%, 100%, 0.3));
 }
 
 h3 {
