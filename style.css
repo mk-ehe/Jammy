@@ -19,6 +19,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     backdrop-filter: blur(4px);
+    transition: opacity 0.5s ease;
 }
 #container::-webkit-scrollbar {
     width: 5px;
@@ -33,6 +34,33 @@ body {
 #container::-webkit-scrollbar-thumb:hover {
     background-color: var(--main-color-hover, #888888);
 }   
+
+
+#hide-btn {
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+    z-index: 999;
+
+    background-color: hsla(0, 0%, 0%, 0);
+    color: hsla(0, 0%, 100%, 0.5);
+    border: 1px solid hsla(0, 0%, 100%, 0.16);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s;
+}
+#hide-btn:hover {
+    background-color: var(--main-color-hover, (0, 0%, 100%, 0.1));
+    color: var(--main-color, white);
+    border: 1px solid var(--main-color, hsla(0, 0%, 100%, 0.16));
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .song-card {
     display: flex;

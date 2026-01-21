@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const bgVideo = document.getElementById("bg-video");
+const hideBtn = document.getElementById('hide-btn');
 
 let activeBtn = null;
 let activeSongElement = null;
@@ -61,6 +62,8 @@ fetch("songs.json")
                     if (song.main_color) {
                         container.style.setProperty("--main-color", song.main_color+"af");
                         container.style.setProperty("--main-color-hover", song.main_color);
+                        hideBtn.style.setProperty("--main-color", song.main_color)
+                        hideBtn.style.setProperty("--main-color-hover", song.main_color+"30")
                     }
                 } else {
                     if (bgVideo.paused) {
@@ -87,5 +90,14 @@ fetch("songs.json")
 
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
+
+            hideBtn.addEventListener('click', () => {
+                container.classList.toggle('hidden');
+                if (container.classList.contains('hidden')) {
+                    hideBtn.textContent = "show";
+                } else {
+                    hideBtn.textContent = "hide";
+                }
+            });
         });
     });
