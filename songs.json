@@ -37,24 +37,6 @@
     },
     {
         "id": 5,
-        "title": "Real - VIP Mix",
-        "artist": "NOTION, Cecelia",
-        "duration": 184,
-        "video_file": "mp4/Real_VIP_Mix.mp4",
-        "cover_img": "covers/Real_VIP_Mix.jpg",
-        "main_color": "#e7e7e7"
-    },
-    {
-        "id": 6,
-        "title": "When You're Not Around",
-        "artist": "Bad Computer & ROY KNOX",
-        "duration": 192,
-        "video_file": "mp4/When_Youre_Not_Around.mp4",
-        "cover_img": "covers/When_Youre_Not_Around.jpg",
-        "main_color": "#58a8d6"
-    },
-    {
-        "id": 7,
         "title": "Stealing Fire",
         "artist": "Virtual Riot",
         "duration": 231,
@@ -63,7 +45,7 @@
         "main_color": "#6d21bf"
     },
     {
-        "id": 8,
+        "id": 6,
         "title": "Burning",
         "artist": "NOTION",
         "duration": 185,
@@ -72,7 +54,7 @@
         "main_color": "#e34265"
     },
     {
-        "id": 9,
+        "id": 7,
         "title": "Euphoria Rush",
         "artist": "CHYL & Skybreak",
         "duration": 237,
@@ -81,7 +63,7 @@
         "main_color": "#a954ff"
     },
     {
-        "id": 10,
+        "id": 8,
         "title": "BODY DROP",
         "artist": "Pirapus",
         "duration": 224,
@@ -90,7 +72,7 @@
         "main_color": "#c3ddeb"
     },
     {
-        "id": 101,
+        "id": 9,
         "title": "EVERYNITE",
         "artist": "Pirapus",
         "duration": 200,
