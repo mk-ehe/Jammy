@@ -87,17 +87,16 @@ fetch("songs.json")
                     playBtn.click();
                 }
             })
-
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
+        });
 
-            hideBtn.addEventListener('click', () => {
-                container.classList.toggle('hidden');
-                if (container.classList.contains('hidden')) {
-                    hideBtn.textContent = "show";
-                } else {
-                    hideBtn.textContent = "hide";
-                }
-            });
+        hideBtn.addEventListener('click', () => {
+            container.classList.toggle('hidden');
+            if (container.classList.contains('hidden')) {
+                hideBtn.textContent = "show";
+            } else {
+                hideBtn.textContent = "hide";
+            }
         });
     });
