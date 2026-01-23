@@ -30,7 +30,6 @@ fetch("songs.json")
             const playBtn = document.createElement("button");
             playBtn.classList.add("play-btn");
             playBtn.textContent = "▶";
-            bgVideo.volume = .2;
             
             if (song.main_color) {
                 songElement.style.setProperty("--active-color", song.main_color+"30");
@@ -90,6 +89,8 @@ fetch("songs.json")
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
         });
+
+        bgVideo.volume = .3;
 
         hideBtn.addEventListener('click', () => {
             container.classList.toggle('hidden');

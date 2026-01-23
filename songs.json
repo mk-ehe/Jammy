@@ -55,11 +55,20 @@
     },
     {
         "id": 7,
-        "title": "EVERYNITE",
-        "artist": "Pirapus",
-        "duration": 200,
-        "video_file": "mp4/EVERYNITE.mp4",
-        "cover_img": "covers/EVERYNITE.jpg",
-        "main_color": "#00e79e"
+        "title": "Be With You",
+        "artist": "RetroVision",
+        "duration": 166,
+        "video_file": "mp4/Be_With_You.mp4",
+        "cover_img": "covers/Be_With_You.jpg",
+        "main_color": "#39ffd8"
+    },
+    {
+        "id": 8,
+        "title": "Turn it up",
+        "artist": "KAYA! x TristanK x Jayslow",
+        "duration": 166,
+        "video_file": "mp4/Turn_it_up.mp4",
+        "cover_img": "covers/Turn_it_up.jpg",
+        "main_color": "#f00f0f"
     }
 ]
