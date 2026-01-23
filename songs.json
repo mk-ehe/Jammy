@@ -70,5 +70,14 @@
         "video_file": "mp4/Turn_it_up.mp4",
         "cover_img": "covers/Turn_it_up.jpg",
         "main_color": "#f00f0f"
+    },
+    {
+        "id": 9,
+        "title": "EVERYNITE",
+        "artist": "Pirapus",
+        "duration": 200,
+        "video_file": "mp4/EVERYNITE.mp4",
+        "cover_img": "covers/EVERYNITE.jpg",
+        "main_color": "#00e79e"
     }
 ]
