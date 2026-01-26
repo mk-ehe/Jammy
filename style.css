@@ -161,7 +161,7 @@ p {
     left: 50%;
     transform: translate(-50%);
     z-index: 999;
-    background-color: hsla(0, 0%, 0%, 0.8);
+    background-color: hsla(0, 0%, 0%, 0.6);
     width: 65%;
     border: 2px solid var(--active-color, #ffffff);
     height: 50px;
@@ -184,10 +184,11 @@ p {
     align-items: center;
     font-family: "Avenir Next", "Century Gothic", "Tw Cen MT", sans-serif;
     transition: opacity 0.5s ease;
+    gap: 25px;
 }
 .warning-header {
     color: red;
-    font-size: 5.2em;
+    font-size: 5.4em;
     font-weight: bold;
     opacity: 0;
     transition: opacity 1.5s ease;
@@ -201,17 +202,18 @@ p {
 }
 .continue-btn {
     height: 16%;
-    width: 32%;
-    margin: 20px;
+    width: 30%;
+    min-width: 360px;
     background-color: transparent;
     border: 4px solid red;
     color: white;
-    font-size: 4.5em;
+    font-size: 4.5rem;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.7s ease, opacity 2s ease;
     opacity: 0;
+    box-sizing: border-box;
 }
 .continue-btn:hover {
     background-color: red;
