@@ -90,14 +90,15 @@ fetch("songs.json")
             container.appendChild(songElement);
         });
 
-        bgVideo.volume = .3;
+        bgVideo.volume = .25;
 
         hideBtn.addEventListener('click', () => {
             container.classList.toggle('hidden');
+            bgVideo.classList.toggle("video-bg-undimmed")
             if (container.classList.contains('hidden')) {
                 hideBtn.textContent = "show";
             } else {
                 hideBtn.textContent = "hide";
-            }
+            }   
         });
     });

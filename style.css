@@ -149,4 +149,8 @@ p {
     display: none;
     filter: brightness(0.75);
     pointer-events: none;
+    transition: filter 0.5s ease;
+}
+.video-bg-undimmed {
+    filter: brightness(1);
 }
