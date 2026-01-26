@@ -1,6 +1,11 @@
 const container = document.getElementById("container");
 const bgVideo = document.getElementById("bg-video");
 const hideBtn = document.getElementById('hide-btn');
+const player = document.getElementById("player");
+const warningContainer = document.getElementById("warning-container");
+const warningHeader = document.getElementById("warning-header");
+const warningDesc = document.getElementById("warning-desc");
+const continueBtn = document.getElementById("continue-btn");
 
 let activeBtn = null;
 let activeSongElement = null;
@@ -63,6 +68,7 @@ fetch("songs.json")
                         container.style.setProperty("--main-color-hover", song.main_color);
                         hideBtn.style.setProperty("--main-color", song.main_color)
                         hideBtn.style.setProperty("--main-color-hover", song.main_color+"30")
+                        player.style.setProperty("--active-color", song.main_color+"af")
                     }
                 } else {
                     if (bgVideo.paused) {
@@ -92,13 +98,27 @@ fetch("songs.json")
 
         bgVideo.volume = .25;
 
-        hideBtn.addEventListener('click', () => {
-            container.classList.toggle('hidden');
+        hideBtn.addEventListener("click", () => {
+            container.classList.toggle("hidden");
             bgVideo.classList.toggle("video-bg-undimmed")
-            if (container.classList.contains('hidden')) {
+            if (container.classList.contains("hidden")) {
                 hideBtn.textContent = "show";
             } else {
                 hideBtn.textContent = "hide";
             }   
         });
+
+        setTimeout(() => {
+            warningHeader.classList.add("showing-up-trasition");
+        },500)
+        setTimeout(() => {
+            warningDesc.classList.add("showing-up-trasition");
+        }, 1500)
+        setTimeout(() => {
+            continueBtn.classList.add("showing-up-trasition");
+        }, 3500)
+
+        continueBtn.addEventListener('click', () => {
+            warningContainer.classList.add("warning-container-hidden");
+        })
     });

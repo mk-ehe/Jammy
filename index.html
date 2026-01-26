@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="warning-container" class="warning-container">
+        <div id="warning-header" class="warning-header">Warning!</div>
+        <div id="warning-desc" class="warning-desc">This site contains flickering lights, please proceed with caution.</div>
+        <button id="continue-btn" class="continue-btn">Continue!</button>
+    </div>
+
     <video id="bg-video" class="video-bg" loop playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback">
         <source src="" type="video/mp4">
     </video>
@@ -14,6 +20,10 @@
     <div id="container"></div>
 
     <button id="hide-btn">hide</button>
+
+    <div id="player" class="player">
+        <button id="player-play-btn" class="play-btn">▶</button>
+    </div>
 
     <script src="index.js"></script>
 </body>
