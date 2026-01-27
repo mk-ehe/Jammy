@@ -68,7 +68,8 @@ fetch("songs.json")
                         container.style.setProperty("--main-color-hover", song.main_color);
                         hideBtn.style.setProperty("--main-color", song.main_color)
                         hideBtn.style.setProperty("--main-color-hover", song.main_color+"30")
-                        player.style.setProperty("--active-color", song.main_color+"af")
+                        player.style.setProperty("--active-color", song.main_color+"a4")
+                        player.style.setProperty("--active-color-hover", song.main_color)
                     }
                 } else {
                     if (bgVideo.paused) {
@@ -120,5 +121,14 @@ fetch("songs.json")
 
         continueBtn.addEventListener('click', () => {
             warningContainer.classList.add("warning-container-hidden");
+
+            const allButtons = document.querySelectorAll('.play-btn');
+            if (allButtons.length > 0) {
+                const randomIndex = Math.floor(Math.random() * allButtons.length);
+                const randomBtn = allButtons[randomIndex];
+
+                randomBtn.click();
+                randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         })
     });
