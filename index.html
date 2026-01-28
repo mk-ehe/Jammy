@@ -10,7 +10,7 @@
     <div id="warning-container" class="warning-container">
         <div id="warning-header" class="warning-header">Epilepsy Warning!</div>
         <div id="warning-desc" class="warning-desc">This site contains flickering lights, please proceed with caution.</div>
-        <button id="continue-btn" class="continue-btn">Continue!</button>
+        <button id="continue-btn" class="continue-btn" tabindex="-1">Continue!</button>
     </div>
 
     <video id="bg-video" class="video-bg" loop playsinline disablePictureInPicture controlsList="nodownload noplaybackrate noremoteplayback">
@@ -19,10 +19,10 @@
 
     <div id="container"></div>
 
-    <button id="hide-btn">hide</button>
+    <button id="hide-btn" tabindex="-1">hide</button>
 
     <div id="player" class="player">
-        <button id="player-play-btn" class="play-btn">▶</button>
+        <button id="player-play-btn" class="play-btn" tabindex="-1">▶</button>
     </div>
 
     <script src="index.js"></script>

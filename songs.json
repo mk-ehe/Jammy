@@ -6,7 +6,8 @@
         "duration": 186,
         "video_file": "mp4/Feel_Ur_Luv.mp4",
         "cover_img": "covers/Feel_Ur_Luv.jpg",
-        "main_color": "#46b7e0"
+        "main_color": "#46b7e0",
+        "volume": 0.22
     },
     {
         "id": 2,
@@ -69,7 +70,8 @@
         "duration": 166,
         "video_file": "mp4/Turn_it_up.mp4",
         "cover_img": "covers/Turn_it_up.jpg",
-        "main_color": "#f00f0f"
+        "main_color": "#f00f0f",
+        "volume": 0.32
     },
     {
         "id": 9,
@@ -79,5 +81,15 @@
         "video_file": "mp4/EVERYNITE.mp4",
         "cover_img": "covers/EVERYNITE.jpg",
         "main_color": "#00e79e"
+    },
+    {
+        "id": 10,
+        "title": "Closer",
+        "artist": "SIIK & KDH",
+        "duration": 146,
+        "video_file": "mp4/Closer.mp4",
+        "cover_img": "covers/Closer.jpg",
+        "main_color": "#a4d7ed",
+        "volume": 0.36
     }
 ]

@@ -33,6 +33,7 @@ fetch("songs.json")
             `;
 
             const playBtn = document.createElement("button");
+            playBtn.tabIndex = -1;
             playBtn.classList.add("play-btn");
             playBtn.textContent = "▶";
             
@@ -43,6 +44,11 @@ fetch("songs.json")
             }
 
             playBtn.addEventListener("click", () => {
+                if (song.volume) {
+                    bgVideo.volume = song.volume;
+                } else {
+                    bgVideo.volume = .25;
+                }
                 const isNewSong = !bgVideo.src.includes(song.video_file);
 
                 if (isNewSong) {
@@ -84,6 +90,12 @@ fetch("songs.json")
                     activeBtn = playBtn;
                 }
             });
+
+            playBtn.addEventListener("dblclick", (e) => {
+                e.stopPropagation();
+                playBtn.click();
+            })
+
             songElement.addEventListener("dblclick", () => {
                 if (activeSongElement === songElement) {
                     bgVideo.currentTime = 0;
@@ -96,8 +108,6 @@ fetch("songs.json")
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
         });
-
-        bgVideo.volume = .25;
 
         hideBtn.addEventListener("click", () => {
             container.classList.toggle("hidden");
