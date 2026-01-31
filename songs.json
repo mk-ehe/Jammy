@@ -65,16 +65,6 @@
     },
     {
         "id": 8,
-        "title": "Turn it up",
-        "artist": "KAYA! x TristanK x Jayslow",
-        "duration": 166,
-        "video_file": "mp4/Turn_it_up.mp4",
-        "cover_img": "covers/Turn_it_up.jpg",
-        "main_color": "#f00f0f",
-        "volume": 0.32
-    },
-    {
-        "id": 9,
         "title": "EVERYNITE",
         "artist": "Pirapus",
         "duration": 200,
@@ -83,7 +73,7 @@
         "main_color": "#00e79e"
     },
     {
-        "id": 10,
+        "id": 9,
         "title": "Closer",
         "artist": "SIIK & KDH",
         "duration": 146,
@@ -91,5 +81,14 @@
         "cover_img": "covers/Closer.jpg",
         "main_color": "#a4d7ed",
         "volume": 0.36
+    },
+    {
+        "id": 10,
+        "title": "Enigma",
+        "artist": "Pixel Terror, Aviella",
+        "duration": 212,
+        "video_file": "mp4/Enigma.mp4",
+        "cover_img": "covers/Enigma.jpg",
+        "main_color": "#ff5b4d"
     }
 ]

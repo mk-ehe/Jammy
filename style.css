@@ -40,7 +40,6 @@ body {
     bottom: 6px;
     right: 6px;
     z-index: 999;
-
     background-color: hsla(0, 0%, 0%, 0);
     color: hsla(0, 0%, 100%, 0.5);
     border: 1px solid hsla(0, 0%, 100%, 0.16);
@@ -51,6 +50,7 @@ body {
     backdrop-filter: blur(4px);
     transition: background-color 0.2s;
     user-select: none;
+    outline: none;
 }
 #hide-btn:hover {
     background-color: var(--main-color-hover, (0, 0%, 100%, 0.1));
@@ -131,7 +131,7 @@ p {
     background: transparent;
     cursor: pointer;
     color: white;
-    padding: 0 15px 5px 10px;
+    padding: 0px 15px 4px 10px;
     font-size: 1.5em;
     width: 50px;
     height: 50px;
@@ -162,7 +162,7 @@ p {
     transform: translate(-50%);
     z-index: 999;
     background-color: hsla(0, 0%, 0%, 0.6);
-    width: 65%;
+    width: 62%;
     border: 2px solid var(--active-color, #ffffff75);
     height: 50px;
     border-radius: 18px;

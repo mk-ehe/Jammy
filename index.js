@@ -16,6 +16,55 @@ function formatTime(seconds) {
     return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 }
 
+function playSong(song, playBtn, songElement) {
+    if (song.volume) {
+        bgVideo.volume = song.volume;
+    } else {
+        bgVideo.volume = .25;
+    }
+    const isNewSong = !bgVideo.src.includes(song.video_file);
+
+    if (isNewSong) {
+        if (activeBtn) {
+            activeBtn.textContent = "▶";
+            playBtn.style.paddingBottom = "4px";
+            activeSongElement.classList.remove("active-card");
+        }
+
+        bgVideo.src = song.video_file;
+        bgVideo.style.display = "block";
+        bgVideo.play();
+        
+        playBtn.textContent = "⏸";
+        playBtn.style.paddingBottom = "8px";
+        
+        activeBtn = playBtn;
+        activeSongElement = songElement;
+        activeSongElement.classList.add("active-card");
+
+        if (song.main_color) {
+            container.style.setProperty("--main-color", song.main_color+"af");
+            container.style.setProperty("--main-color-hover", song.main_color);
+            hideBtn.style.setProperty("--main-color", song.main_color)
+            hideBtn.style.setProperty("--main-color-hover", song.main_color+"30")
+            player.style.setProperty("--active-color", song.main_color+"a4")
+            player.style.setProperty("--active-color-hover", song.main_color)
+        }
+        
+    } else {
+        if (bgVideo.paused) {
+            bgVideo.play();
+            playBtn.textContent = "⏸";
+            playBtn.style.paddingBottom = "8px";
+        } else {
+            bgVideo.pause();
+            playBtn.textContent = "▶";
+            playBtn.style.paddingBottom = "4px";
+        }   
+        activeBtn = playBtn;
+    }
+}
+
 fetch("songs.json")
     .then(response => response.json())
     .then(data => {
@@ -44,51 +93,7 @@ fetch("songs.json")
             }
 
             playBtn.addEventListener("click", () => {
-                if (song.volume) {
-                    bgVideo.volume = song.volume;
-                } else {
-                    bgVideo.volume = .25;
-                }
-                const isNewSong = !bgVideo.src.includes(song.video_file);
-
-                if (isNewSong) {
-                    if (activeBtn) {
-                        activeBtn.textContent = "▶";
-                        playBtn.style.paddingBottom = "5px";
-                        activeSongElement.classList.remove("active-card");
-                    }
-
-                    bgVideo.src = song.video_file;
-                    bgVideo.style.display = "block";
-                    bgVideo.play();
-                    
-                    playBtn.textContent = "⏸";
-                    playBtn.style.paddingBottom = "9px";
-                    
-                    activeBtn = playBtn;
-                    activeSongElement = songElement;
-                    activeSongElement.classList.add("active-card");
-
-                    if (song.main_color) {
-                        container.style.setProperty("--main-color", song.main_color+"af");
-                        container.style.setProperty("--main-color-hover", song.main_color);
-                        hideBtn.style.setProperty("--main-color", song.main_color)
-                        hideBtn.style.setProperty("--main-color-hover", song.main_color+"30")
-                        player.style.setProperty("--active-color", song.main_color+"a4")
-                        player.style.setProperty("--active-color-hover", song.main_color)
-                    }
-                } else {
-                    if (bgVideo.paused) {
-                        bgVideo.play();
-                        playBtn.textContent = "⏸";
-                        playBtn.style.paddingBottom = "9px";
-                    } else {
-                        bgVideo.pause();
-                        playBtn.textContent = "▶";
-                        playBtn.style.paddingBottom = "5px";
-                    }   
-                    activeBtn = playBtn;
-                }
+                playSong(song, playBtn, songElement);
             });
 
             playBtn.addEventListener("dblclick", (e) => {
@@ -101,6 +106,7 @@ fetch("songs.json")
                     bgVideo.currentTime = 0;
                     bgVideo.play();
                     playBtn.textContent = "⏸";
+                    playBtn.style.paddingBottom = "8px";
                 } else {
                     playBtn.click();
                 }
@@ -108,37 +114,32 @@ fetch("songs.json")
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
         });
-
-        hideBtn.addEventListener("click", () => {
-            container.classList.toggle("hidden");
-            bgVideo.classList.toggle("video-bg-undimmed")
-            if (container.classList.contains("hidden")) {
-                hideBtn.textContent = "show";
-            } else {
-                hideBtn.textContent = "hide";
-            }   
-        });
-
-        setTimeout(() => {
-            warningHeader.classList.add("showing-up-trasition");
-        },500)
-        setTimeout(() => {
-            warningDesc.classList.add("showing-up-trasition");
-        }, 1500)
-        setTimeout(() => {
-            continueBtn.classList.add("showing-up-trasition");
-        }, 3500)
-
-        continueBtn.addEventListener('click', () => {
-            warningContainer.classList.add("warning-container-hidden");
-
-            const allButtons = document.querySelectorAll('.play-btn');
-            if (allButtons.length > 0) {
-                const randomIndex = Math.floor(Math.random() * allButtons.length);
-                const randomBtn = allButtons[randomIndex];
-
-                randomBtn.click();
-                randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        })
     });
+
+
+hideBtn.addEventListener("click", () => {
+    container.classList.toggle("hidden");
+    bgVideo.classList.toggle("video-bg-undimmed")
+    if (container.classList.contains("hidden")) {
+        hideBtn.textContent = "show";
+    } else {
+        hideBtn.textContent = "hide";
+    }   
+});
+
+setTimeout(() => {warningHeader.classList.add("showing-up-trasition");}, 500)
+setTimeout(() => {warningDesc.classList.add("showing-up-trasition");}, 1500)
+setTimeout(() => {continueBtn.classList.add("showing-up-trasition");}, 3500)
+
+continueBtn.addEventListener('click', () => {
+    warningContainer.classList.add("warning-container-hidden");
+
+    const allButtons = document.querySelectorAll('.play-btn');
+    if (allButtons.length > 0) {
+        const randomIndex = Math.floor(Math.random() * allButtons.length);
+        const randomBtn = allButtons[randomIndex];
+
+        randomBtn.click();
+        randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+});
