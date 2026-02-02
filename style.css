@@ -200,8 +200,8 @@ p {
     transition: opacity 1.5s ease;
 }
 .warning-desc {
-    font-size: 2.5em;
-    width: 50%;
+    font-size: 2em;
+    width: 70%;
     font-weight: bold;
     opacity: 0;
     transition: opacity 2s ease;
