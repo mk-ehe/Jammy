@@ -27,7 +27,6 @@ function playSong(song, playBtn, songElement) {
     if (isNewSong) {
         if (activeBtn) {
             activeBtn.textContent = "▶";
-            playBtn.style.paddingBottom = "4px";
             activeSongElement.classList.remove("active-card");
         }
 
@@ -35,8 +34,12 @@ function playSong(song, playBtn, songElement) {
         bgVideo.style.display = "block";
         bgVideo.play();
         
-        playBtn.textContent = "\u23F8";
-        playBtn.style.paddingBottom = "8px";
+        playBtn.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+        `;
         
         activeBtn = playBtn;
         activeSongElement = songElement;
@@ -54,12 +57,15 @@ function playSong(song, playBtn, songElement) {
     } else {
         if (bgVideo.paused) {
             bgVideo.play();
-            playBtn.textContent = "\u23F8";
-            playBtn.style.paddingBottom = "8px";
+            playBtn.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            `;
         } else {
             bgVideo.pause();
             playBtn.textContent = "▶";
-            playBtn.style.paddingBottom = "4px";
         }   
         activeBtn = playBtn;
     }
@@ -105,8 +111,12 @@ fetch("songs.json")
                 if (activeSongElement === songElement) {
                     bgVideo.currentTime = 0;
                     bgVideo.play();
-                    playBtn.textContent = "\u23F8";
-                    playBtn.style.paddingBottom = "8px";
+                    playBtn.innerHTML = `
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="4" width="4" height="16"></rect>
+                            <rect x="14" y="4" width="4" height="16"></rect>
+                        </svg>
+                    `;
                 } else {
                     playBtn.click();
                 }
