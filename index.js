@@ -35,7 +35,7 @@ function playSong(song, playBtn, songElement) {
         bgVideo.style.display = "block";
         bgVideo.play();
         
-        playBtn.textContent = "⏸";
+        playBtn.textContent = "\u23F8";
         playBtn.style.paddingBottom = "8px";
         
         activeBtn = playBtn;
@@ -54,7 +54,7 @@ function playSong(song, playBtn, songElement) {
     } else {
         if (bgVideo.paused) {
             bgVideo.play();
-            playBtn.textContent = "⏸";
+            playBtn.textContent = "\u23F8";
             playBtn.style.paddingBottom = "8px";
         } else {
             bgVideo.pause();
@@ -105,7 +105,7 @@ fetch("songs.json")
                 if (activeSongElement === songElement) {
                     bgVideo.currentTime = 0;
                     bgVideo.play();
-                    playBtn.textContent = "⏸";
+                    playBtn.textContent = "\u23F8";
                     playBtn.style.paddingBottom = "8px";
                 } else {
                     playBtn.click();
