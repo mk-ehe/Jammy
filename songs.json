@@ -1,16 +1,6 @@
 [
     {
         "id": 1,
-        "title": "Feel Ur Luv",
-        "artist": "RetroVision",
-        "duration": 186,
-        "video_file": "mp4/Feel_Ur_Luv.mp4",
-        "cover_img": "covers/Feel_Ur_Luv.jpg",
-        "main_color": "#46b7e0",
-        "volume": 0.22
-    },
-    {
-        "id": 2,
         "title": "Ultrasound",
         "artist": "Arcando & Pirapus",
         "duration": 187,
@@ -19,7 +9,7 @@
         "main_color": "#adadad"
     },
     {
-        "id": 3,
+        "id": 2,
         "title": "SONG REQUEST",
         "artist": "RAY VOLPE",
         "duration": 204,
@@ -28,7 +18,7 @@
         "main_color": "#fe411b"
     },
     {
-        "id": 4,
+        "id": 3,
         "title": "Burning",
         "artist": "NOTION",
         "duration": 185,
@@ -37,7 +27,7 @@
         "main_color": "#e34265"
     },
     {
-        "id": 5,
+        "id": 4,
         "title": "Euphoria Rush",
         "artist": "CHYL & Skybreak",
         "duration": 237,
@@ -46,7 +36,7 @@
         "main_color": "#a954ff"
     },
     {
-        "id": 6,
+        "id": 5,
         "title": "BODY DROP",
         "artist": "Pirapus",
         "duration": 224,
@@ -55,13 +45,23 @@
         "main_color": "#c3ddeb"
     },
     {
-        "id": 7,
+        "id": 6,
         "title": "Be With You",
         "artist": "RetroVision",
         "duration": 166,
         "video_file": "mp4/Be_With_You.mp4",
         "cover_img": "covers/Be_With_You.jpg",
         "main_color": "#39ffd8"
+    },
+    {
+        "id": 7,
+        "title": "Holy",
+        "artist": "Nostalgix",
+        "duration": 184,
+        "video_file": "mp4/Holy.mp4",
+        "cover_img": "covers/Holy.jpg",
+        "main_color": "#ff6a0d",
+        "volume": 0.32
     },
     {
         "id": 8,

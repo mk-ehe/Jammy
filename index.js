@@ -20,7 +20,7 @@ function playSong(song, playBtn, songElement) {
     if (song.volume) {
         bgVideo.volume = song.volume;
     } else {
-        bgVideo.volume = .25;
+        bgVideo.volume = .28;
     }
     const isNewSong = !bgVideo.src.includes(song.video_file);
 
