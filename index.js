@@ -35,7 +35,7 @@ function playSong(song, playBtn, songElement) {
         bgVideo.play();
         
         playBtn.innerHTML = `
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 3px">
                 <rect x="6" y="4" width="4" height="16"></rect>
                 <rect x="14" y="4" width="4" height="16"></rect>
             </svg>
@@ -58,7 +58,7 @@ function playSong(song, playBtn, songElement) {
         if (bgVideo.paused) {
             bgVideo.play();
             playBtn.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 3px">
                     <rect x="6" y="4" width="4" height="16"></rect>
                     <rect x="14" y="4" width="4" height="16"></rect>
                 </svg>
@@ -112,7 +112,7 @@ fetch("songs.json")
                     bgVideo.currentTime = 0;
                     bgVideo.play();
                     playBtn.innerHTML = `
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 3px">
                             <rect x="6" y="4" width="4" height="16"></rect>
                             <rect x="14" y="4" width="4" height="16"></rect>
                         </svg>
