@@ -1,0 +1,1 @@
+jammy-static.vercel.app
