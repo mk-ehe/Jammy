@@ -1,1 +1,1 @@
-jammy-static.vercel.app
+https://jammy-static.vercel.app
