@@ -124,6 +124,19 @@ fetch("songs.json")
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
         });
+        
+        continueBtn.addEventListener('click', () => {
+            warningContainer.classList.add("warning-container-hidden");
+
+            const allButtons = document.querySelectorAll('.play-btn');
+            if (allButtons.length > 0) {
+                const randomIndex = Math.floor((Math.random() * allButtons.length));
+                const randomBtn = allButtons[randomIndex];
+
+                randomBtn.click();
+                randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
     });
 
 
@@ -140,16 +153,3 @@ hideBtn.addEventListener("click", () => {
 setTimeout(() => {warningHeader.classList.add("showing-up-trasition");}, 500)
 setTimeout(() => {warningDesc.classList.add("showing-up-trasition");}, 1500)
 setTimeout(() => {continueBtn.classList.add("showing-up-trasition");}, 3500)
-
-continueBtn.addEventListener('click', () => {
-    warningContainer.classList.add("warning-container-hidden");
-
-    const allButtons = document.querySelectorAll('.play-btn');
-    if (allButtons.length > 0) {
-        const randomIndex = Math.floor(Math.random() * allButtons.length);
-        const randomBtn = allButtons[randomIndex];
-
-        randomBtn.click();
-        randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-});
