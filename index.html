@@ -19,10 +19,28 @@
 
     <div id="container"></div>
 
-    <button id="hide-btn" tabindex="-1">hide</button>
-
     <div id="player" class="player">
         <button id="player-play-btn" class="play-btn" tabindex="-1">▶</button>
+        <div class="duration-player">0:00</div>
+        <input type="range" class="progress-bar" value="0" min="0" max="0" step="0.1">
+
+        <div class="volume-container">
+            <div class="volume-slider">
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.28">
+            </div>
+
+            <button class="volume">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <button id="hide-btn" tabindex="999">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.08L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.15C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.27,4.75 8.07,5.27L10.08,7.29C10.65,7.11 11.29,7 12,7Z" />
+            </svg>
+        </button>
     </div>
 
     <script src="index.js"></script>
