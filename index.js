@@ -6,7 +6,10 @@ const warningContainer = document.getElementById("warning-container");
 const warningHeader = document.getElementById("warning-header");
 const warningDesc = document.getElementById("warning-desc");
 const continueBtn = document.getElementById("continue-btn");
+const volumeSlider = document.getElementById("volume-slider");
+const volumeBtn = document.getElementById("volume-btn");
 
+let lastVolume = volumeSlider.value;
 let activeBtn = null;
 let activeSongElement = null;
 
@@ -32,7 +35,11 @@ function playSong(song, playBtn, songElement) {
 
         bgVideo.src = song.video_file;
         bgVideo.style.display = "block";
-        bgVideo.play();
+
+        var playPromise = bgVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {});
+            }
         
         playBtn.innerHTML = `
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
@@ -56,7 +63,10 @@ function playSong(song, playBtn, songElement) {
         
     } else {
         if (bgVideo.paused) {
-            bgVideo.play();
+            var playPromise = bgVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {});
+            }
             playBtn.innerHTML = `
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
                     <rect x="6" y="4" width="4" height="16"></rect>
@@ -123,21 +133,21 @@ fetch("songs.json")
             })
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
-        });
+        
 
-        continueBtn.addEventListener('click', () => {
-            warningContainer.classList.add("warning-container-hidden");
+            continueBtn.addEventListener('click', () => {
+                warningContainer.classList.add("warning-container-hidden");
 
-            const allButtons = document.querySelectorAll('.song-card .play-btn');
-            if (allButtons.length > 0) {
-                const randomIndex = Math.floor((Math.random() * allButtons.length));
-                const randomBtn = allButtons[randomIndex];
-                randomBtn.click();
-                randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+                const allButtons = document.querySelectorAll('.song-card .play-btn');
+                if (allButtons.length > 0) {
+                    const randomIndex = Math.floor((Math.random() * allButtons.length));
+                    const randomBtn = allButtons[randomIndex];
+                    randomBtn.click();
+                    randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
         });
     });
-
 
 const iconEyeOpen = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -153,12 +163,53 @@ hideBtn.addEventListener("click", () => {
     container.classList.toggle("hidden");
     bgVideo.classList.toggle("video-bg-undimmed")
     if (container.classList.contains("hidden")) {
-        hideBtn.innerHTML = iconEyeOpen;
-    } else {
         hideBtn.innerHTML = iconEyeClosed;
+    } else {
+        hideBtn.innerHTML = iconEyeOpen;
     }   
 });
 
 setTimeout(() => {warningHeader.classList.add("showing-up-trasition");}, 500)
 setTimeout(() => {warningDesc.classList.add("showing-up-trasition");}, 1500)
 setTimeout(() => {continueBtn.classList.add("showing-up-trasition");}, 3500)
+
+
+const iconMute = `
+<svg width="24" height="24" viewBox="0 0 24 24">
+    <path d="M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.53C15.58,18.04 14.83,18.46 14,18.7V20.77C15.38,20.45 16.63,19.82 17.68,18.96L19.73,21L21,19.73L4.27,3M12,4L9.91,6.09L12,8.18V4M16.5,12C16.5,10.23 15.5,8.71 14,7.97V10.18L16.45,12.63C16.48,12.43 16.5,12.22 16.5,12M19,12C19,12.94 18.8,13.82 18.46,14.64L19.97,16.15C20.62,14.91 21,13.5 21,12C21,7.72 18,4.14 14,3.23V5.29C16.89,6.15 19,8.83 19,12Z" />
+</svg>`;
+
+const iconSound = `
+<svg width="24" height="24" viewBox="0 0 24 24">
+    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+</svg>`;
+
+
+volumeSlider.addEventListener("input", (event) => {
+    const volumeValue = parseFloat(event.target.value);
+    bgVideo.volume = volumeValue;
+
+    if (volumeValue > 0) {
+        lastVolume = volumeValue;
+        volumeBtn.innerHTML = iconSound;
+    } else {
+        volumeBtn.innerHTML = iconMute;
+    }
+})
+
+volumeBtn.addEventListener("click", () => {
+    const currentVol = parseFloat(volumeSlider.value);
+
+    if (currentVol > 0){
+        lastVolume = currentVol;
+        volumeBtn.innerHTML = iconMute;
+        bgVideo.volume = 0;
+        volumeSlider.value = 0;
+
+    } else {
+        const restoreAmount = lastVolume > 0 ? lastVolume : 0.28;
+        volumeBtn.innerHTML = iconSound;
+        bgVideo.volume = restoreAmount;
+        volumeSlider.value = restoreAmount;
+    }
+})
