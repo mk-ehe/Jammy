@@ -14,6 +14,8 @@ let lastVolume = volumeSlider.value;
 let activeBtn = null;
 let activeSongElement = null;
 
+bgVideo.volume = .28;
+
 function formatTime(seconds) {
     const min = Math.floor(seconds / 60);
     const sec = Math.floor(seconds % 60);
@@ -21,11 +23,6 @@ function formatTime(seconds) {
 }
 
 function playSong(song, playBtn, songElement) {
-    if (song.volume) {
-        bgVideo.volume = song.volume;
-    } else {
-        bgVideo.volume = .28;
-    }
     const isNewSong = !bgVideo.src.includes(song.video_file);
 
     if (isNewSong) {

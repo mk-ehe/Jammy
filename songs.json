@@ -60,8 +60,7 @@
         "duration": 184,
         "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Holy.mp4",
         "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Holy.jpg",
-        "main_color": "#ff6a0d",
-        "volume": 0.32
+        "main_color": "#ff6a0d"
     },
     {
         "id": 8,
@@ -79,8 +78,7 @@
         "duration": 146,
         "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Closer.mp4",
         "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Closer.jpg",
-        "main_color": "#a4d7ed",
-        "volume": 0.36
+        "main_color": "#a4d7ed"
     },
     {
         "id": 10,
