@@ -8,6 +8,7 @@ const warningDesc = document.getElementById("warning-desc");
 const continueBtn = document.getElementById("continue-btn");
 const volumeSlider = document.getElementById("volume-slider");
 const volumeBtn = document.getElementById("volume-btn");
+const playerPlayBtn = document.getElementById("player-play-btn");
 
 let lastVolume = volumeSlider.value;
 let activeBtn = null;
@@ -73,9 +74,16 @@ function playSong(song, playBtn, songElement) {
                     <rect x="14" y="4" width="4" height="16"></rect>
                 </svg>
             `;
+            playerPlayBtn.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            `;
         } else {
             bgVideo.pause();
             playBtn.textContent = "▶";
+            playerPlayBtn.textContent = "▶";
         }   
         activeBtn = playBtn;
     }
@@ -144,6 +152,12 @@ fetch("songs.json")
                     const randomBtn = allButtons[randomIndex];
                     randomBtn.click();
                     randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    playerPlayBtn.innerHTML = `
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
+                            <rect x="6" y="4" width="4" height="16"></rect>
+                            <rect x="14" y="4" width="4" height="16"></rect>
+                        </svg>
+                    `;
                 }
             });
         });
@@ -213,3 +227,19 @@ volumeBtn.addEventListener("click", () => {
         volumeSlider.value = restoreAmount;
     }
 })
+
+playerPlayBtn.addEventListener("click", () => {
+    if (activeBtn && bgVideo.paused) {
+        activeBtn.click();
+        playerPlayBtn.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+        `;
+    } else {
+        playerPlayBtn.textContent = "▶";
+        activeBtn.click();
+        bgVideo.pause();
+        }
+    });
