@@ -45,7 +45,8 @@ function playSong(song, playBtn, songElement) {
                 <rect x="14" y="4" width="4" height="16"></rect>
             </svg>
         `;
-        
+        playerPlayBtn.innerHTML = playBtn.innerHTML;
+
         activeBtn = playBtn;
         activeSongElement = songElement;
         activeSongElement.classList.add("active-card");
@@ -71,12 +72,7 @@ function playSong(song, playBtn, songElement) {
                     <rect x="14" y="4" width="4" height="16"></rect>
                 </svg>
             `;
-            playerPlayBtn.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
-                    <rect x="6" y="4" width="4" height="16"></rect>
-                    <rect x="14" y="4" width="4" height="16"></rect>
-                </svg>
-            `;
+            playerPlayBtn.innerHTML = playBtn.innerHTML;
         } else {
             bgVideo.pause();
             playBtn.textContent = "▶";
@@ -228,15 +224,29 @@ volumeBtn.addEventListener("click", () => {
 playerPlayBtn.addEventListener("click", () => {
     if (activeBtn && bgVideo.paused) {
         activeBtn.click();
-        playerPlayBtn.innerHTML = `
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
-        `;
     } else {
         playerPlayBtn.textContent = "▶";
         activeBtn.click();
         bgVideo.pause();
         }
     });
+
+bgVideo.addEventListener('ended', () => {
+    const activeCard = document.querySelector('.active-card');
+    if (!activeCard) return;
+
+    const allCards = Array.from(document.querySelectorAll('.song-card'));
+    const currentIndex = allCards.indexOf(activeCard);
+    let nextIndex = currentIndex + 1;
+    
+    if (nextIndex >= allCards.length) {
+        nextIndex = 0;
+    }
+
+    const nextCard = allCards[nextIndex];
+    const nextBtn = nextCard.querySelector('.play-btn');
+    if (nextBtn) {
+        nextBtn.click();
+        nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+});
