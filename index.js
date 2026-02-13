@@ -9,18 +9,50 @@ const continueBtn = document.getElementById("continue-btn");
 const volumeSlider = document.getElementById("volume-slider");
 const volumeBtn = document.getElementById("volume-btn");
 const playerPlayBtn = document.getElementById("player-play-btn");
+const durationElement = document.getElementById("duration-player");
+const progressBar = document.querySelector(".progress-bar");
 
 let lastVolume = volumeSlider.value;
 let activeBtn = null;
 let activeSongElement = null;
+let isDragging = false;
 
-bgVideo.volume = .28;
+bgVideo.volume = parseFloat(volumeSlider.value);
+lastVolume = parseFloat(volumeSlider.value);
+
+const preloader = document.createElement('video');
+preloader.preload = "auto";
+preloader.volume = 0;
 
 function formatTime(seconds) {
     const min = Math.floor(seconds / 60);
     const sec = Math.floor(seconds % 60);
     return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 }
+
+
+function updateProgressBarColor(current, total) {
+    const percent = (current / total) * 100;
+    const activeColor = getComputedStyle(player).getPropertyValue('--active-color-hover').trim() || '#ffffff';
+    progressBar.style.background = `linear-gradient(to right, ${activeColor} 0%, ${activeColor} ${percent}%, rgba(255, 255, 255, 0.2) ${percent}%, rgba(255, 255, 255, 0.2) 100%)`;
+}
+
+
+function smoothProgressLoop() {
+    if (!bgVideo.paused && !isDragging) {
+        const currentTime = bgVideo.currentTime;
+        const duration = bgVideo.duration;
+
+        if (!isNaN(duration)) {
+            progressBar.max = duration;
+            progressBar.value = currentTime;
+
+            updateProgressBarColor(currentTime, duration);
+        }
+        requestAnimationFrame(smoothProgressLoop);
+    }
+}
+
 
 function playSong(song, playBtn, songElement) {
     const isNewSong = !bgVideo.src.includes(song.video_file);
@@ -248,5 +280,37 @@ bgVideo.addEventListener('ended', () => {
     if (nextBtn) {
         nextBtn.click();
         nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+});
+
+
+bgVideo.addEventListener('play', () => {
+    requestAnimationFrame(smoothProgressLoop);
+});
+
+bgVideo.addEventListener('timeupdate', () => {
+    const currentTime = bgVideo.currentTime;
+    if (!isDragging && !isNaN(bgVideo.duration)) {
+        durationElement.textContent = formatTime(currentTime);
+    }
+});
+
+progressBar.addEventListener('mousedown', () => { isDragging = true; });
+progressBar.addEventListener('touchstart', () => { isDragging = true; });
+
+progressBar.addEventListener('input', (e) => {
+    const seekTime = parseFloat(e.target.value);
+    updateProgressBarColor(seekTime, progressBar.max);
+    durationElement.textContent = formatTime(seekTime);
+});
+
+progressBar.addEventListener('change', (e) => {
+    isDragging = false;
+    bgVideo.currentTime = parseFloat(e.target.value);
+    
+    if(bgVideo.paused) {
+        updateProgressBarColor(bgVideo.currentTime, bgVideo.duration);
+    } else {
+        requestAnimationFrame(smoothProgressLoop);
     }
 });
