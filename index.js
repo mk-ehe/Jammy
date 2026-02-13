@@ -314,3 +314,26 @@ progressBar.addEventListener('change', (e) => {
         requestAnimationFrame(smoothProgressLoop);
     }
 });
+
+let idleTimer;
+function resetIdleTimer() {
+    document.body.classList.remove("idle-mode");
+    clearTimeout(idleTimer);
+
+    if (!bgVideo.paused) {
+        idleTimer = setTimeout(() => {
+            document.body.classList.add("idle-mode");
+        }, 10000);
+    }
+}
+
+['mousemove', 'mousedown', 'keypress', 'touchstart', 'scroll'].forEach(evt => {
+    document.addEventListener(evt, resetIdleTimer);
+});
+
+bgVideo.addEventListener('pause', () => {
+    document.body.classList.remove("idle-mode");
+    clearTimeout(idleTimer);
+});
+
+bgVideo.addEventListener('play', resetIdleTimer);

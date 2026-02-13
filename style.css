@@ -366,7 +366,7 @@ p {
     transition: background-color 0.7s ease, opacity 2s ease;
     opacity: 0;
     box-sizing: border-box;
-    /* pointer-events: none;    enable that if site is ready */
+    pointer-events: none;
 }
 .continue-btn:hover {
     background-color: red;
@@ -377,5 +377,22 @@ p {
 }
 .showing-up-trasition {
     opacity: 1;
-    /* pointer-events: all;      enable that if site is ready */
+    pointer-events: all;
+}
+
+#container, #player, #hide-btn {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.idle-mode #container,
+body.idle-mode #player,
+body.idle-mode #hide-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+body.idle-mode #bg-video {
+    filter: brightness(1);
+}
+body.idle-mode {
+    cursor: none;
 }
