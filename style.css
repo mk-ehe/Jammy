@@ -165,16 +165,13 @@ p {
     z-index: 999;
     background-color: hsla(0, 0%, 0%, 0.6);
     width: 62%;
-    border: 2px solid var(--active-color, #ffffff75);
+    border: 2px solid var(--active-color-hover, #ffffff75);
     height: 50px;
     border-radius: 18px;
     min-width: 380px;
     backdrop-filter: blur(4px);
     transition: border 0.5s ease;
     gap: 10px;
-}
-.player:hover {
-    border: 2px solid var(--active-color-hover, #ffffff75);
 }
 
 .duration-player {
@@ -204,7 +201,7 @@ p {
     color: var(--active-color-hover, white);
 }
 #player-play-btn svg {
-    display: block; /* Usuwa "magic space" pod grafiką */
+    display: block;
 }
 
 .progress-bar {
@@ -380,13 +377,12 @@ p {
     pointer-events: all;
 }
 
-#container, #player, #hide-btn {
+#container, #player {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 body.idle-mode #container,
-body.idle-mode #player,
-body.idle-mode #hide-btn {
+body.idle-mode #player {
     opacity: 0;
     pointer-events: none;
 }

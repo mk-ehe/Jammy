@@ -33,7 +33,7 @@ function formatTime(seconds) {
 
 function updateProgressBarColor(current, total) {
     const percent = (current / total) * 100;
-    const activeColor = getComputedStyle(player).getPropertyValue('--active-color-hover').trim() || '#ffffff';
+    const activeColor = getComputedStyle(player).getPropertyValue('--active-color').trim() || '#ffffff';
     progressBar.style.background = `linear-gradient(to right, ${activeColor} 0%, ${activeColor} ${percent}%, rgba(255, 255, 255, 0.2) ${percent}%, rgba(255, 255, 255, 0.2) 100%)`;
 }
 
@@ -183,6 +183,13 @@ fetch("songs.json")
                             <rect x="14" y="4" width="4" height="16"></rect>
                         </svg>
                     `;
+                    container.style.pointerEvents = "none";
+                    player.style.pointerEvents = "none";
+                    setTimeout(() => { 
+                        warningContainer.remove();
+                        container.style.pointerEvents = "auto";
+                        player.style.pointerEvents = "auto";
+                     }, 500);
                 }
             });
         });
