@@ -88,5 +88,14 @@
         "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Enigma.mp4",
         "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Enigma.jpg",
         "main_color": "#ff5b4d"
+    },
+    {
+        "id": 11,
+        "title": "Distant Dreams",
+        "artist": "CHYL & k?d",
+        "duration": 199,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Distant_Dreams.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Distant_Dreams.jpg",
+        "main_color": "#fefaff"
     }
 ]
