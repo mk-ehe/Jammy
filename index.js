@@ -16,6 +16,7 @@ let lastVolume = volumeSlider.value;
 let activeBtn = null;
 let activeSongElement = null;
 let isDragging = false;
+let songsData = [];
 
 bgVideo.volume = parseFloat(volumeSlider.value);
 lastVolume = parseFloat(volumeSlider.value);
@@ -30,6 +31,21 @@ function formatTime(seconds) {
     return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 }
 
+function preloadNextSong(currentSong) {
+    const currentIndex = songsData.indexOf(currentSong);
+
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= songsData.length) {
+        nextIndex = 0;
+    }
+
+    const nextSong = songsData[nextIndex];
+    if (nextSong) {
+        preloader.src = nextSong.video_file;
+        preloader.load();
+    }
+}
+
 
 function updateProgressBarColor(current, total) {
     const percent = (current / total) * 100;
@@ -38,7 +54,7 @@ function updateProgressBarColor(current, total) {
 }
 
 
-function smoothProgressLoop() {
+function progressLoop() {
     if (!bgVideo.paused && !isDragging) {
         const currentTime = bgVideo.currentTime;
         const duration = bgVideo.duration;
@@ -49,7 +65,7 @@ function smoothProgressLoop() {
 
             updateProgressBarColor(currentTime, duration);
         }
-        requestAnimationFrame(smoothProgressLoop);
+        requestAnimationFrame(progressLoop);
     }
 }
 
@@ -65,6 +81,7 @@ function playSong(song, playBtn, songElement) {
 
         bgVideo.src = song.video_file;
         bgVideo.style.display = "block";
+        preloadNextSong(song);
 
         var playPromise = bgVideo.play();
             if (playPromise !== undefined) {
@@ -117,6 +134,7 @@ function playSong(song, playBtn, songElement) {
 fetch("songs.json")
     .then(response => response.json())
     .then(data => {
+        songsData = data;
         data.forEach(song => {
             const songElement = document.createElement("div");
             songElement.classList.add("song-card");
@@ -166,15 +184,23 @@ fetch("songs.json")
             })
             songElement.appendChild(playBtn); 
             container.appendChild(songElement);
-        
+            })
 
-            continueBtn.addEventListener('click', () => {
-                warningContainer.classList.add("warning-container-hidden");
+            const allButtons = document.querySelectorAll('.song-card .play-btn');
+            if (allButtons.length > 0) {
+                const randomIndex = Math.floor((Math.random() * allButtons.length));
+                const randomBtn = allButtons[randomIndex];
+                const randomSongData = data[randomIndex];
+            
 
-                const allButtons = document.querySelectorAll('.song-card .play-btn');
-                if (allButtons.length > 0) {
-                    const randomIndex = Math.floor((Math.random() * allButtons.length));
-                    const randomBtn = allButtons[randomIndex];
+                if (randomSongData) {
+                    preloader.src = randomSongData.video_file; 
+                    preloader.load();
+                }
+
+                continueBtn.addEventListener('click', () => {
+                    warningContainer.classList.add("warning-container-hidden");
+
                     randomBtn.click();
                     randomBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     playerPlayBtn.innerHTML = `
@@ -189,11 +215,10 @@ fetch("songs.json")
                         warningContainer.remove();
                         container.style.pointerEvents = "auto";
                         player.style.pointerEvents = "auto";
-                     }, 500);
-                }
-            });
-        });
-    });
+                        }, 500);
+                });
+            }
+        })
 
 const iconEyeOpen = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -270,6 +295,16 @@ playerPlayBtn.addEventListener("click", () => {
         }
     });
 
+bgVideo.addEventListener('pause', () => {
+    document.body.classList.remove("idle-mode");
+    clearTimeout(idleTimer);
+});
+
+bgVideo.addEventListener('play', () => {
+    requestAnimationFrame(progressLoop);
+    resetIdleTimer;
+});
+
 bgVideo.addEventListener('ended', () => {
     const activeCard = document.querySelector('.active-card');
     if (!activeCard) return;
@@ -290,10 +325,6 @@ bgVideo.addEventListener('ended', () => {
     }
 });
 
-
-bgVideo.addEventListener('play', () => {
-    requestAnimationFrame(smoothProgressLoop);
-});
 
 bgVideo.addEventListener('timeupdate', () => {
     const currentTime = bgVideo.currentTime;
@@ -318,7 +349,7 @@ progressBar.addEventListener('change', (e) => {
     if(bgVideo.paused) {
         updateProgressBarColor(bgVideo.currentTime, bgVideo.duration);
     } else {
-        requestAnimationFrame(smoothProgressLoop);
+        requestAnimationFrame(progressLoop);
     }
 });
 
@@ -337,10 +368,3 @@ function resetIdleTimer() {
 ['mousemove', 'mousedown', 'keypress', 'touchstart', 'scroll'].forEach(evt => {
     document.addEventListener(evt, resetIdleTimer);
 });
-
-bgVideo.addEventListener('pause', () => {
-    document.body.classList.remove("idle-mode");
-    clearTimeout(idleTimer);
-});
-
-bgVideo.addEventListener('play', resetIdleTimer);
