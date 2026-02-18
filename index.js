@@ -323,6 +323,7 @@ bgVideo.addEventListener('ended', () => {
         nextBtn.click();
         nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    resetIdleTimer();
 });
 
 
