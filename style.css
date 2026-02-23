@@ -84,6 +84,8 @@ body {
     background-color: var(--active-color, hsla(0, 0%, 100%, 0.24));
     transition: background-color 0.2s ease;
     border: 1px solid var(--main-color-border, (0, 0%, 100%, 0.3));
+    box-shadow: 0 0 30px var(--active-color-hover);
+    filter: drop-shadow(0 0 20px var(--active-color-hover));
 }
 .active-card:hover {
     background-color: var(--active-color-hover, hsla(0, 0%, 100%, 0.3));
@@ -157,6 +159,7 @@ p {
 
 .player {
     display: flex;
+    box-shadow: 0 0 8px var(--active-color-hover);
     flex-direction: row;
     position: fixed;
     bottom: 0;
@@ -172,6 +175,7 @@ p {
     backdrop-filter: blur(4px);
     transition: border 0.5s ease;
     gap: 10px;
+    filter: drop-shadow(0 0 80px var(--active-color-hover));
 }
 
 .duration-player {
