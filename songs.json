@@ -100,6 +100,15 @@
     },
     {
         "id": 12,
+        "title": "Set Me Free",
+        "artist": "Martin Garrix, Arcando, Bonn",
+        "duration": 195,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Set_Me_Free.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Set_Me_Free.jpg",
+        "main_color": "#efa872"
+    },
+    {
+        "id": 13,
         "title": "California Dreamin'",
         "artist": "Arcando",
         "duration": 172,
@@ -108,12 +117,12 @@
         "main_color": "#bcd3ff"
     },
     {
-        "id": 13,
-        "title": "Set Me Free",
-        "artist": "Martin Garrix, Arcando, Bonn",
-        "duration": 195,
-        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Set_Me_Free.mp4",
-        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Set_Me_Free.jpg",
-        "main_color": "#efa872"
+        "id": 14,
+        "title": "Divination",
+        "artist": "Juelz",
+        "duration": 204,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Divination.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Divination.jpg",
+        "main_color": "#b1bdb8"
     }
 ]
