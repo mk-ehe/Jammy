@@ -100,6 +100,8 @@ function playSong(song, playBtn, songElement) {
         activeSongElement = songElement;
         activeSongElement.classList.add("active-card");
 
+        playBtn.focus();
+
         if (song.main_color) {
             container.style.setProperty("--main-color", song.main_color+"af");
             container.style.setProperty("--main-color-hover", song.main_color);
