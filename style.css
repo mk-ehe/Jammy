@@ -232,6 +232,8 @@ p {
     background: var(--active-color-hover, white);
     cursor: pointer;
     transition: transform 0.1s ease;
+    box-shadow: 0 0 10px var(--active-color-hover);
+    filter: drop-shadow(0 0 1px var(--active-color-hover));
 }
 .progress-bar::-webkit-slider-runnable-track {
     width: 100%;
