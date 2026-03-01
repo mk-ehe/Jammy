@@ -1,1 +1,1 @@
-mk-ehe-jammy.vercel.app
+https://mk-ehe-jammy.vercel.app
