@@ -295,6 +295,8 @@ p {
     border-radius: 50%;
     background: var(--active-color-hover, white);
     cursor: pointer;
+    box-shadow: 0 0 5px var(--active-color-hover);
+    filter: drop-shadow(0 0 8px var(--active-color-hover));
 }
 #volume-slider::-webkit-slider-thumb:hover {
     transform: scale(1.1);
