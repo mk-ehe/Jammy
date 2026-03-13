@@ -14,6 +14,8 @@ const progressBar = document.querySelector(".progress-bar");
 
 let lastVolume = volumeSlider.value;
 let activeBtn = null;
+let currentSongData = null;
+let hasPreloadedNext = false;
 let activeSongElement = null;
 let isDragging = false;
 let songsData = [];
@@ -79,9 +81,12 @@ function playSong(song, playBtn, songElement) {
             activeSongElement.classList.remove("active-card");
         }
 
+        currentSongData = song; 
+        hasPreloadedNext = false;
+
         bgVideo.src = song.video_file;
         bgVideo.style.display = "block";
-        preloadNextSong(song);
+        
 
         var playPromise = bgVideo.play();
             if (playPromise !== undefined) {
@@ -331,8 +336,16 @@ bgVideo.addEventListener('ended', () => {
 
 bgVideo.addEventListener('timeupdate', () => {
     const currentTime = bgVideo.currentTime;
+    const duration = bgVideo.duration;
     if (!isDragging && !isNaN(bgVideo.duration)) {
         durationElement.textContent = formatTime(currentTime);
+
+        if (!hasPreloadedNext && (duration - currentTime <= 10)) {
+            hasPreloadedNext = true;
+            if (currentSongData) {
+                preloadNextSong(currentSongData);
+            }
+        }
     }
 });
 
