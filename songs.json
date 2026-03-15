@@ -109,6 +109,15 @@
     },
     {
         "id": 13,
+        "title": "Under Bright Lights",
+        "artist": "TWERL & Ekko & Sidetrack",
+        "duration": 227,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Under_Bright_Lights.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Under_Bright_Lights.jpg",
+        "main_color": "#06f0d9"
+    },
+    {
+        "id": 14,
         "title": "California Dreamin'",
         "artist": "Arcando",
         "duration": 172,
@@ -117,7 +126,7 @@
         "main_color": "#bcd3ff"
     },
     {
-        "id": 14,
+        "id": 15,
         "title": "Divination",
         "artist": "Juelz",
         "duration": 204,
