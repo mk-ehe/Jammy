@@ -185,6 +185,12 @@ fetch("songs.json")
                             <rect x="14" y="4" width="4" height="16"></rect>
                         </svg>
                     `;
+                    playerPlayBtn.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="padding-top: 2px">
+                            <rect x="6" y="4" width="4" height="16"></rect>
+                            <rect x="14" y="4" width="4" height="16"></rect>
+                        </svg>
+                    `
                 } else {
                     playBtn.click();
                 }
