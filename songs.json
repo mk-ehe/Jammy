@@ -127,6 +127,24 @@
     },
     {
         "id": 15,
+        "title": "Nite Mode",
+        "artist": "CHYL, Trip Trop & Britt Lari",
+        "duration": 181,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Nite_Mode'.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Nite_Mode'.jpg",
+        "main_color": "#00ffb7"
+    },
+    {
+        "id": 16,
+        "title": "Nevada",
+        "artist": "Vicetone, Cozi Zuehlsdorff",
+        "duration": 208,
+        "video_file": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/mp4/Nevada'.mp4",
+        "cover_img": "https://pub-656b4ae819614919ae57430d6f244038.r2.dev/covers/Nevada'.jpg",
+        "main_color": "#ff15dc"
+    },
+    {
+        "id": 17,
         "title": "Divination",
         "artist": "Juelz",
         "duration": 204,
