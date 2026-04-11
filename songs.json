@@ -136,6 +136,15 @@
     },
     {
         "id": 16,
+        "title": "Wide Awake",
+        "artist": "Arcando, Sam Harper",
+        "duration": 209,
+        "video_file": "https://cdn.perfumr.pl/mp4/Wide_Awake.mp4",
+        "cover_img": "https://cdn.perfumr.pl/covers/Wide_Awake.jpg",
+        "main_color": "#0033ff"
+    },
+    {
+        "id": 17,
         "title": "Divination",
         "artist": "Juelz",
         "duration": 204,
