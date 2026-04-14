@@ -109,6 +109,15 @@
     },
     {
         "id": 13,
+        "title": "Every Day",
+        "artist": "Habstrakt",
+        "duration": 185,
+        "video_file": "https://cdn.perfumr.pl/mp4/Every_Day.mp4",
+        "cover_img": "https://cdn.perfumr.pl/covers/Every_Day.jpg",
+        "main_color": "#eeecee"
+    },
+    {
+        "id": 14,
         "title": "Under Bright Lights",
         "artist": "TWERL & Ekko & Sidetrack",
         "duration": 227,
@@ -117,7 +126,7 @@
         "main_color": "#06f0d9"
     },
     {
-        "id": 14,
+        "id": 15,
         "title": "California Dreamin'",
         "artist": "Arcando",
         "duration": 170,
@@ -126,7 +135,7 @@
         "main_color": "#bcd3ff"
     },
     {
-        "id": 15,
+        "id": 16,
         "title": "Nite Mode",
         "artist": "CHYL, Trip Trop & Britt Lari",
         "duration": 181,
@@ -135,7 +144,7 @@
         "main_color": "#49b897"
     },
     {
-        "id": 16,
+        "id": 17,
         "title": "Wide Awake",
         "artist": "Arcando, Sam Harper",
         "duration": 209,
@@ -144,7 +153,7 @@
         "main_color": "#0033ff"
     },
     {
-        "id": 17,
+        "id": 18,
         "title": "Divination",
         "artist": "Juelz",
         "duration": 204,
