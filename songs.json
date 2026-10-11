@@ -50,16 +50,6 @@
         "main_color": "#c3ddeb"
     },
     {
-        "id": 6,
-        "title": "Be With You",
-        "artist": "RetroVision",
-        "duration": 166,
-        "video_file": "https://cdn.perfumr.pl/mp4/Be_With_You.mp4",
-        "music_file": "https://cdn.perfumr.pl/mp3/Be_With_You.mp3",
-        "cover_img": "https://cdn.perfumr.pl/covers/Be_With_You.jpg",
-        "main_color": "#39ffd8"
-    },
-    {
         "id": 7,
         "title": "Holy",
         "artist": "Nostalgix",
