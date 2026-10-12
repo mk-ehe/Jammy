@@ -10,26 +10,6 @@
         "main_color": "#adadad"
     },
     {
-        "id": 2,
-        "title": "SONG REQUEST",
-        "artist": "RAY VOLPE",
-        "duration": 204,
-        "video_file": "https://cdn.perfumr.pl/mp4/SONG_REQUEST.mp4",
-        "music_file": "https://cdn.perfumr.pl/mp3/SONG_REQUEST.mp3",
-        "cover_img": "https://cdn.perfumr.pl/covers/SONG_REQUEST.jpg",
-        "main_color": "#fe411b"
-    },
-    {
-        "id": 3,
-        "title": "Burning",
-        "artist": "NOTION",
-        "duration": 185,
-        "video_file": "https://cdn.perfumr.pl/mp4/Burning.mp4",
-        "music_file": "https://cdn.perfumr.pl/mp3/Burning.mp3",
-        "cover_img": "https://cdn.perfumr.pl/covers/Burning.jpg",
-        "main_color": "#e34265"
-    },
-    {
         "id": 4,
         "title": "Euphoria Rush",
         "artist": "CHYL & Skybreak",
@@ -68,26 +48,6 @@
         "music_file": "https://cdn.perfumr.pl/mp3/EVERYNITE.mp3",
         "cover_img": "https://cdn.perfumr.pl/covers/EVERYNITE.jpg",
         "main_color": "#00e79e"
-    },
-    {
-        "id": 9,
-        "title": "Closer",
-        "artist": "SIIK & KDH",
-        "duration": 146,
-        "video_file": "https://cdn.perfumr.pl/mp4/Closer.mp4",
-        "music_file": "https://cdn.perfumr.pl/mp3/Closer.mp3",
-        "cover_img": "https://cdn.perfumr.pl/covers/Closer.jpg",
-        "main_color": "#a4d7ed"
-    },
-    {
-        "id": 10,
-        "title": "Enigma",
-        "artist": "Pixel Terror, Aviella",
-        "duration": 217,
-        "video_file": "https://cdn.perfumr.pl/mp4/Enigma.mp4",
-        "music_file": "https://cdn.perfumr.pl/mp3/Enigma.mp3",
-        "cover_img": "https://cdn.perfumr.pl/covers/Enigma.jpg",
-        "main_color": "#ff5b4d"
     },
     {
         "id": 11,
@@ -193,11 +153,41 @@
         "id": 21,
         "title": "1-2 Finish",
         "artist": "Hyper Potions, Nokae",
-        "duration": 205,
+        "duration": 145,
         "video_file": "https://cdn.perfumr.pl/mp4/1-2_Finish.mp4",
         "music_file": "https://cdn.perfumr.pl/mp3/1-2_Finish.mp3",
         "cover_img": "https://cdn.perfumr.pl/covers/1-2_Finish.jpg",
         "main_color": "#f50f5f"
+    },
+    {
+        "id": 22,
+        "title": "Crazy",
+        "artist": "CHYL, Staarz",
+        "duration": 208,
+        "video_file": "https://cdn.perfumr.pl/mp4/Crazy.mp4",
+        "music_file": "https://cdn.perfumr.pl/mp3/Crazy.mp3",
+        "cover_img": "https://cdn.perfumr.pl/covers/Crazy.jpg",
+        "main_color": "#fb0000"
+    },
+    {
+        "id": 23,
+        "title": "Lost Tonight",
+        "artist": "Kanine, Paripus",
+        "duration": 179,
+        "video_file": "https://cdn.perfumr.pl/mp4/Lost_Tonight.mp4",
+        "music_file": "https://cdn.perfumr.pl/mp3/Lost_Tonight.mp3",
+        "cover_img": "https://cdn.perfumr.pl/covers/Lost_Tonight.jpg",
+        "main_color": "#92e1ff"
+    },
+    {
+        "id": 24,
+        "title": "Speed of Light",
+        "artist": "CHYL",
+        "duration": 165,
+        "video_file": "https://cdn.perfumr.pl/mp4/Speed_of_Light.mp4",
+        "music_file": "https://cdn.perfumr.pl/mp3/Speed_of_Light.mp3",
+        "cover_img": "https://cdn.perfumr.pl/covers/Speed_of_Light.jpg",
+        "main_color": "#ef3aff"
     },
     {
         "id": 999,
