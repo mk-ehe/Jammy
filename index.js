@@ -21,7 +21,6 @@ let activeSongElement = null;
 let isDragging = false;
 let songsData = [];
 
-// Obsługa losowego odtwarzania bez powtórzeń
 let isShuffle = false;
 let shuffleQueue = [];
 
@@ -36,7 +35,7 @@ function generateShuffleQueue(excludeSong = null) {
     if (pool.length === 0) {
         pool = [...songsData];
     }
-    // Fisher-Yates shuffle
+    
     for (let i = pool.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [pool[i], pool[j]] = [pool[j], pool[i]];
@@ -62,7 +61,6 @@ function getNextSong() {
     }
 }
 
-// Aktualizacja wyglądu i świecenia przycisku losowania
 function updateShuffleButtonUI() {
     const themeColor = (currentSongData && currentSongData.main_color) ? currentSongData.main_color : '#ffffff';
     if (isShuffle) {
@@ -173,7 +171,7 @@ function playSong(song, playBtn, songElement) {
         currentSongData = song; 
         hasPreloadedNext = false;
 
-        // Jeśli kliknięto utwór ręcznie, usuwamy go z bieżącej losowej puli, by się nie powtórzył
+        
         if (isShuffle) {
             shuffleQueue = shuffleQueue.filter(s => !isSameSongData(s, song));
         }
@@ -393,13 +391,11 @@ fetch("songs.json")
         }
     });
 
-// Klasyczna, czysta wektorowa ikona przeplatających się strzałek (Shuffle)
 const iconShuffle = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="pointer-events: none;">
     <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
 </svg>`;
 
-// Inicjalizacja przycisku
 hideBtn.innerHTML = iconShuffle;
 hideBtn.style.transition = "color 0.3s ease, filter 0.3s ease, opacity 0.3s ease";
 updateShuffleButtonUI();
