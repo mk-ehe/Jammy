@@ -191,6 +191,16 @@
     },
     {
         "id": 21,
+        "title": "1-2 Finish",
+        "artist": "Hyper Potions, Nokae",
+        "duration": 205,
+        "video_file": "https://cdn.perfumr.pl/mp4/1-2_Finish.mp4",
+        "music_file": "https://cdn.perfumr.pl/mp3/1-2_Finish.mp3",
+        "cover_img": "https://cdn.perfumr.pl/covers/1-2_Finish.jpg",
+        "main_color": "#f50f5f"
+    },
+    {
+        "id": 999,
         "title": "Divination",
         "artist": "Juelz",
         "duration": 204,
