@@ -21,6 +21,7 @@ let activeSongElement = null;
 let isDragging = false;
 let songsData = [];
 
+// Obsługa losowego odtwarzania bez powtórzeń
 let isShuffle = false;
 let shuffleQueue = [];
 
@@ -35,7 +36,7 @@ function generateShuffleQueue(excludeSong = null) {
     if (pool.length === 0) {
         pool = [...songsData];
     }
-    
+    // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [pool[i], pool[j]] = [pool[j], pool[i]];
@@ -61,6 +62,7 @@ function getNextSong() {
     }
 }
 
+// Świecenie ikony w kolorze motywu piosenki
 function updateShuffleButtonUI() {
     const themeColor = (currentSongData && currentSongData.main_color) ? currentSongData.main_color : '#ffffff';
     if (isShuffle) {
@@ -171,7 +173,6 @@ function playSong(song, playBtn, songElement) {
         currentSongData = song; 
         hasPreloadedNext = false;
 
-        
         if (isShuffle) {
             shuffleQueue = shuffleQueue.filter(s => !isSameSongData(s, song));
         }
@@ -391,6 +392,7 @@ fetch("songs.json")
         }
     });
 
+// Klasyczna ikona przeplatających się strzałek (Shuffle)
 const iconShuffle = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="pointer-events: none;">
     <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
@@ -553,13 +555,14 @@ progressBar.addEventListener('input', (e) => {
 progressBar.addEventListener('change', (e) => {
     isDragging = false;
     const seekTime = parseFloat(e.target.value);
+    const isAudioMode = switchInput && switchInput.checked;
     
-    if (!bgVideo.paused) {
-        bgVideo.currentTime = seekTime;
-        updateProgressBarColor(bgVideo.currentTime, bgVideo.duration);
-    } else {
+    if (isAudioMode) {
         bgAudio.currentTime = seekTime;
         updateProgressBarColor(bgAudio.currentTime, bgAudio.duration);
+    } else {
+        bgVideo.currentTime = seekTime;
+        updateProgressBarColor(bgVideo.currentTime, bgVideo.duration);
     }
     requestAnimationFrame(progressLoop);
 });
@@ -593,31 +596,80 @@ if (switchInput) {
         }
 
         if (currentSongData) {
-            const currentTime = bgVideo.paused ? bgAudio.currentTime : bgVideo.currentTime;
-            const isPlaying = !bgVideo.paused || !bgAudio.paused;
+            const isToAudio = switchInput.checked;
+            
+            // Poprzednio aktywne medium
+            const fromMedia = isToAudio ? bgVideo : bgAudio;
+            
+            // Sprawdzenie czy utwór aktualnie grał PRZED kliknięciem przełącznika
+            const isPlaying = (!bgVideo.paused && !bgVideo.ended && bgVideo.currentTime > 0) || 
+                              (!bgAudio.paused && !bgAudio.ended && bgAudio.currentTime > 0);
+
+            // Dokładna pozycja z odtwarzacza lub paska postępu
+            let savedTime = fromMedia.currentTime;
+            if (isNaN(savedTime) || savedTime === 0) {
+                savedTime = parseFloat(progressBar.value) || 0;
+            }
 
             bgVideo.style.opacity = '0';
 
             setTimeout(() => {
-                if (switchInput.checked) {
+                if (isToAudio) {
                     bgVideo.pause();
-                    bgVideo.currentTime = 0;
                     bgVideo.style.display = "none";
                     bgAudio.src = currentSongData.music_file;
-                    bgAudio.currentTime = currentTime;
-                    
+                    bgAudio.volume = parseFloat(volumeSlider.value);
+
+                    const syncAudio = () => {
+                        bgAudio.currentTime = savedTime;
+                        progressBar.value = savedTime;
+                        const dur = bgAudio.duration || progressBar.max;
+                        if (!isNaN(dur) && dur > 0) {
+                            progressBar.max = dur;
+                            updateProgressBarColor(savedTime, dur);
+                        }
+                        durationElement.textContent = formatTime(savedTime);
+                    };
+
+                    if (bgAudio.readyState >= 1) {
+                        syncAudio();
+                    } else {
+                        bgAudio.addEventListener('loadedmetadata', syncAudio, { once: true });
+                    }
+
                     if (isPlaying) {
                         bgAudio.play().catch(error => {});
+                    } else {
+                        bgAudio.pause();
                     }
                 } else {
                     bgAudio.pause();
-                    bgAudio.currentTime = 0;
+                    bgAudio.src = "";
                     bgVideo.src = currentSongData.video_file;
                     bgVideo.style.display = "block";
-                    bgVideo.currentTime = currentTime;
-                    
+                    bgVideo.volume = parseFloat(volumeSlider.value);
+
+                    const syncVideo = () => {
+                        bgVideo.currentTime = savedTime;
+                        progressBar.value = savedTime;
+                        const dur = bgVideo.duration || progressBar.max;
+                        if (!isNaN(dur) && dur > 0) {
+                            progressBar.max = dur;
+                            updateProgressBarColor(savedTime, dur);
+                        }
+                        durationElement.textContent = formatTime(savedTime);
+                    };
+
+                    if (bgVideo.readyState >= 1) {
+                        syncVideo();
+                    } else {
+                        bgVideo.addEventListener('loadedmetadata', syncVideo, { once: true });
+                    }
+
                     if (isPlaying) {
                         bgVideo.play().catch(error => {});
+                    } else {
+                        bgVideo.pause();
                     }
                 }
                 
